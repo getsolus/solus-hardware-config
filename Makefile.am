@@ -3,4 +3,5 @@ EXTRA_DIST = \
 	README.md
 
 SUBDIRS = \
-	blacklist
+	blacklist \
+	xorg
