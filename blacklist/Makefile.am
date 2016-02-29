@@ -3,3 +3,6 @@ blacklistdir = \
 
 blacklist_DATA = \
 	20-pcspkr.conf
+
+EXTRA_DIST = \
+	$(blacklist_DATA)

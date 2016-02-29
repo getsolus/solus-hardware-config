@@ -3,3 +3,6 @@ xorgdir = \
 
 xorg_DATA = \
 	20-g600.conf
+
+EXTRA_DIST = \
+	$(xorg_DATA)
