@@ -4,4 +4,5 @@ EXTRA_DIST = \
 
 SUBDIRS = \
 	blacklist \
+	options \
 	xorg
