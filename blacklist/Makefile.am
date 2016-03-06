@@ -1,5 +1,5 @@
 blacklistdir = \
-	$(sysconfdir)/modprobe.d
+	$(libdir)/modprobe.d
 
 blacklist_DATA = \
 	20-pcspkr.conf \
