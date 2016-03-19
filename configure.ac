@@ -1,4 +1,4 @@
-AC_INIT([Solus HW Config], 4, [ikey@solus-project.com], [solus-hardware-config], [https://solus-project.com/])
+AC_INIT([Solus HW Config], 5, [ikey@solus-project.com], [solus-hardware-config], [https://solus-project.com/])
 AM_INIT_AUTOMAKE([-Wno-portability no-dist-gzip dist-xz foreign subdir-objects])
 
 AC_PREFIX_DEFAULT(/usr/local)
