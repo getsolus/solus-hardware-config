@@ -5,4 +5,5 @@ EXTRA_DIST = \
 SUBDIRS = \
 	blacklist \
 	options \
+	sysctl \
 	xorg
