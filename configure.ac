@@ -9,6 +9,7 @@ AC_CONFIG_FILES([Makefile
                 blacklist/Makefile
                 options/Makefile
                 sysctl/Makefile
+                systemd/Makefile
                 xorg/Makefile])
 
 
