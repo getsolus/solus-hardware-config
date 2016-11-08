@@ -10,6 +10,7 @@ AC_CONFIG_FILES([Makefile
                 options/Makefile
                 sysctl/Makefile
                 systemd/Makefile
+                udev/Makefile
                 xorg/Makefile])
 
 

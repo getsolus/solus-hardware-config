@@ -7,4 +7,5 @@ SUBDIRS = \
 	options \
 	sysctl \
 	systemd \
+	udev \
 	xorg
