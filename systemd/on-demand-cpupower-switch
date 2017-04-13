@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+# This script is called during multi-user.target
+# When using cpufreq we'll switch to powersave post-boot
+# When using intel_pstate we'll switch to powersave
+
+function enable_cpufreq_ondemand()
+{
+    echo /usr/bin/cpupower -c all frequency-set -g ondemand
+}
+
+function enable_intel_powersave()
+{
+    echo /usr/bin/cpupower -c all frequency-set -g powersave
+}
+
+if [[ `grep intel_pstate /sys/devices/system/cpu/cpu*/cpufreq/scaling_driver` ]]; then
+    enable_intel_powersave
+else
+    enable_cpufreq_ondemand
+fi
+

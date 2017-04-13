@@ -4,7 +4,7 @@ ConditionPathExists=/usr/bin/cpupower
 
 [Service]
 Type=oneshot
-ExecStart=-/usr/bin/cpupower -c all frequency-set -g ondemand
+ExecStart=-/usr/sbin/on-demand-cpupower-switch
 
 [Install]
 WantedBy=multi-user.target
