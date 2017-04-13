@@ -7,12 +7,12 @@ set -e
 
 function enable_cpufreq_ondemand()
 {
-    echo /usr/bin/cpupower -c all frequency-set -g ondemand
+    /usr/bin/cpupower -c all frequency-set -g ondemand
 }
 
 function enable_intel_powersave()
 {
-    echo /usr/bin/cpupower -c all frequency-set -g powersave
+    /usr/bin/cpupower -c all frequency-set -g powersave
 }
 
 if [[ `grep intel_pstate /sys/devices/system/cpu/cpu*/cpufreq/scaling_driver` ]]; then
