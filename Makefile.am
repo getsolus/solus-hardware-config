@@ -6,5 +6,6 @@ SUBDIRS = \
 	blacklist \
 	options \
 	sysctl \
+	systemd \
 	udev \
 	xorg

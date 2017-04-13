@@ -1,0 +1,10 @@
+[Unit]
+Description=Switch system into ondemand governer
+ConditionPathExists=/usr/bin/cpupower
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/bin/cpupower -c all frequency-set -g ondemand
+
+[Install]
+WantedBy=multi-user.target
