@@ -1,6 +1,7 @@
 [Unit]
 Description=Switch system into ondemand governer
 ConditionPathExists=/usr/bin/cpupower
+ConditionVirtualization=no
 
 [Service]
 Type=oneshot
