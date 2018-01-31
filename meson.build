@@ -77,9 +77,8 @@ config_h = configure_file(
 )
 config_h_dir = include_directories('.')
 
-subdir('blacklist')
 subdir('coredump')
-subdir('options')
+subdir('modprobe')
 subdir('sysctl')
 subdir('udev')
 subdir('xorg')

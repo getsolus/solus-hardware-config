@@ -1,9 +1,14 @@
+options = [
+    '20-iwlwifi.conf',
+    '20-rtl8723be.conf',
+]
+
 blacklists = [
     '20-pcspkr.conf',
     '20-pcsp.conf',
 ]
 
 install_data(
-    blacklists,
+    options + blacklists,
     install_dir: path_modprobe_dir,
 )
