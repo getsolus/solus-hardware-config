@@ -82,7 +82,7 @@ subdir('modprobe')
 subdir('sysctl')
 subdir('udev')
 subdir('xorg')
-subdir('systemd')
+subdir('cpu-on-demand')
 
 report = [
     '    Build configuration:',
