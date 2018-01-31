@@ -78,6 +78,7 @@ config_h = configure_file(
 config_h_dir = include_directories('.')
 
 subdir('blacklist')
+subdir('coredump')
 subdir('options')
 subdir('sysctl')
 subdir('udev')
