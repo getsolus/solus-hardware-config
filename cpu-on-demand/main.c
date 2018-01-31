@@ -11,6 +11,8 @@
 
 #define _GNU_SOURCE
 
+#include "config.h"
+
 #include <errno.h>
 #include <fcntl.h>
 #include <glob.h>
@@ -183,6 +185,11 @@ static int shc_set_scale(ShcScale scale)
         static const char *glob_pattern = "/sys/devices/system/cpu/cpu*/cpufreq";
         glob_t glo = { 0 };
 
+        if (geteuid() != 0) {
+                fputs("You must be root to run this program\n", stderr);
+                return EXIT_FAILURE;
+        }
+
         if (glob(glob_pattern, 0, NULL, &glo) != 0) {
                 return EXIT_FAILURE;
         }
@@ -211,11 +218,60 @@ failed:
 }
 
 /**
+ * Simply emit basic usage
+ */
+static void print_usage(const char *progname)
+{
+        printf("Usage: %s [command]\n\n\n", progname);
+        fputs("    help - Print this help message\n", stdout);
+        fputs("   start - Scale CPU to ondemand/powersave mode\n", stdout);
+        fputs("    stop - Scale CPU to performance mode\n", stdout);
+        fputs(" version - Print version and quit\n", stdout);
+}
+
+/**
+ * Print version and quit
+ */
+static void print_version(void)
+{
+        fputs(PACKAGE_NAME " version " PACKAGE_VERSION "\n\n", stdout);
+        fputs("Copyright © 2018 Solus Project\n\n", stdout);
+        fputs(PACKAGE_NAME
+              " "
+              "is free software; you can redistribute it and/or modify\n\
+it under the terms of the GNU General Public License as published by\n\
+the Free Software Foundation; either version 2 of the License, or\n\
+(at your option) any later version.\n",
+              stdout);
+}
+
+/**
  * Main entry into cpu-on-demand service
  *
  * For now we'll just push the powersave mode.
  */
 int main(__shc_unused__ int argc, __shc_unused__ char **argv)
 {
-        return shc_set_scale(SHC_SCALE_POWERSAVE);
+        const char *subarg = NULL;
+
+        if (argc != 2) {
+                print_usage(argv[0]);
+                return EXIT_FAILURE;
+        }
+
+        subarg = argv[1];
+        if (strcmp(subarg, "start") == 0) {
+                return shc_set_scale(SHC_SCALE_POWERSAVE);
+        } else if (strcmp(subarg, "stop") == 0) {
+                return shc_set_scale(SHC_SCALE_PERFORMANCE);
+        } else if (strcmp(subarg, "help") == 0 || strcmp(subarg, "-h") == 0) {
+                print_usage(argv[0]);
+                return EXIT_SUCCESS;
+        } else if (strcmp(subarg, "version") == 0 || strcmp(subarg, "-v") == 0) {
+                print_version();
+                return EXIT_SUCCESS;
+        }
+
+        fprintf(stderr, "Unknown argument '%s'\n", subarg);
+        return EXIT_FAILURE;
 }

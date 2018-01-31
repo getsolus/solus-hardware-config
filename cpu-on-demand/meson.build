@@ -8,6 +8,9 @@ executable(
     sources: [
         'main.c',
     ],
+    include_directories: [
+        config_h_dir,
+    ],
     install: true,
     install_dir: path_sbindir,
 )
