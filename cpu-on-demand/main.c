@@ -138,6 +138,44 @@ static const char *shc_transform(ShcDriver driver, ShcScale scale)
 }
 
 /**
+ * Set the current governor for the @cpufreq_path to @target_mode
+ */
+static bool shc_set_governor(const char *cpufreq_path, const char *target_mode)
+{
+        char cpu_buf[PATH_MAX] = { 0 };
+        int fd = -1;
+        bool ret = false;
+
+        /* Build path for scaling_driver */
+        if (snprintf(cpu_buf, sizeof(cpu_buf), "%s/scaling_governor", cpufreq_path) < 0) {
+                fputs("OOM\n", stderr);
+                return SHC_DRIVER_UNKNOWN;
+        }
+
+        fd = open(cpu_buf, O_WRONLY | O_CLOEXEC, 00644);
+        if (fd < 0) {
+                fprintf(stderr,
+                        "Failed to open %s for writing: %s\n",
+                        cpufreq_path,
+                        strerror(errno));
+                return false;
+        }
+
+        /* Write mode */
+        if (write(fd, target_mode, strlen(target_mode)) < 0) {
+                fprintf(stderr, "Failed to write %s: %s\n", cpufreq_path, strerror(errno));
+                goto failed;
+        }
+
+        (void)fdatasync(fd);
+        ret = true;
+
+failed:
+        close(fd);
+        return ret;
+}
+
+/**
  * Set scale on all CPUs to @mode
  */
 static int shc_set_scale(ShcScale scale)
@@ -161,7 +199,9 @@ static int shc_set_scale(ShcScale scale)
                         goto failed;
                 }
 
-                fprintf(stdout, "Set mode: \"%s\"\n", target_mode);
+                if (!shc_set_governor(cpu, target_mode)) {
+                        goto failed;
+                }
         }
 
 failed:
