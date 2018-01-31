@@ -1,5 +1,5 @@
 [Unit]
-Description=Switch system into ondemand governer
+Description=Switch system CPU into powersave mode
 ConditionVirtualization=no
 
 [Service]
