@@ -79,8 +79,7 @@ config_h_dir = include_directories('.')
 
 subdir('coredump')
 subdir('modprobe')
-subdir('sysctl')
-subdir('udev')
+subdir('tweaks')
 subdir('xorg')
 subdir('cpu-on-demand')
 
