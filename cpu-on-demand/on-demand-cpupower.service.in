@@ -3,8 +3,10 @@ Description=Switch system CPU into powersave mode
 ConditionVirtualization=no
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=-@SBINDIR@/on-demand-cpupower-switch start
+ExecStop=-@SBINDIR@/on-demand-cpupower-switch stop
+RemainAfterExit=true
 
 [Install]
 WantedBy=multi-user.target
