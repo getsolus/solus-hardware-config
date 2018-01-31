@@ -4,8 +4,8 @@ options = [
 ]
 
 blacklists = [
-    '20-pcspkr.conf',
-    '20-pcsp.conf',
+    '20-pcspkr-blacklist.conf',
+    '20-pcsp-blacklist.conf',
 ]
 
 install_data(
