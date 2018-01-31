@@ -82,7 +82,7 @@ subdir('coredump')
 subdir('modprobe')
 subdir('tweaks')
 subdir('xorg')
-subdir('cpu-on-demand')
+subdir('cpu-powersave')
 subdir('man')
 
 report = [

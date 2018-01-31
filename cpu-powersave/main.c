@@ -234,19 +234,18 @@ static void print_usage(const char *progname)
  */
 static void print_version(void)
 {
-        fputs(PACKAGE_NAME " version " PACKAGE_VERSION "\n\n", stdout);
+        fputs("cpu-powersave version " PACKAGE_VERSION "\n\n", stdout);
         fputs("Copyright © 2018 Solus Project\n\n", stdout);
-        fputs(PACKAGE_NAME
-              " "
-              "is free software; you can redistribute it and/or modify\n\
+        fputs(
+            "cpu-powersave is free software; you can redistribute it and/or modify\n\
 it under the terms of the GNU General Public License as published by\n\
 the Free Software Foundation; either version 2 of the License, or\n\
 (at your option) any later version.\n",
-              stdout);
+            stdout);
 }
 
 /**
- * Main entry into cpu-on-demand service
+ * Main entry into cpu-powersave service
  *
  * For now we'll just push the powersave mode.
  */

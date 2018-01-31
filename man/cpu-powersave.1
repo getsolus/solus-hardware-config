@@ -1,16 +1,16 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "ON\-DEMAND\-CPUPOWER\-SWITCH" "1" "January 2018" "" ""
+.TH "CPU\-POWERSAVE" "1" "January 2018" "" ""
 .
 .SH "NAME"
-\fBon\-demand\-cpupower\-switch\fR \- Transition CPU governor
+\fBcpu\-powersave\fR \- Transition CPU governor
 .
 .SH "SYNOPSIS"
-\fBon\-demand\-cpupower\-switch [subcommand]\fR
+\fBcpu\-powersave [subcommand]\fR
 .
 .SH "DESCRIPTION"
-\fBon\-demand\-cpupower\-switch\fR is a system binary used during the boot process to transition the CPU governor from the default \fBperformance\fR into the appropriate powersaving governor supported by the kernel driver\.
+\fBcpu\-powersave\fR is a system binary used during the boot process to transition the CPU governor from the default \fBperformance\fR into the appropriate powersaving governor supported by the kernel driver\.
 .
 .P
 For \fBintel_pstate\fR systems all cores will transition to the \fBpowersave\fR governor, whereas traditional \fBcpufreq\fR systems will transition to the \fBondemand\fR governor\.

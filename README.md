@@ -14,7 +14,7 @@ This package contains configuration data and utilities required by all Solus ins
 
 Data snippets to nuke systemd coredump behaviour from orbit. Solus contains full `-dbginfo` packages that users can install to use `gdb` to debug problematic software with guidance from the team. Persistent automatic coredumps lead to security risks, not to mention massive performance issues when large processes dump. Additionally, they take up a massive amount of disk space.
 
-### cpu-on-demand
+### cpu-powersave
 
 Trivial boot service to move the system into powersave/on-demand CPU governor. The Solus kernel is configured to prefer `performance` by default, and lazily changing this later in the boot helps to maintain decent boot times as well as being conservative with battery life.
 

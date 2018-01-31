@@ -4,8 +4,8 @@ ConditionVirtualization=no
 
 [Service]
 Type=simple
-ExecStart=-@SBINDIR@/on-demand-cpupower-switch start
-ExecStop=-@SBINDIR@/on-demand-cpupower-switch stop
+ExecStart=-@SBINDIR@/cpu-powersave start
+ExecStop=-@SBINDIR@/cpu-powersave stop
 RemainAfterExit=true
 
 [Install]

@@ -1,15 +1,15 @@
-on-demand-cpupower-switch(1) -- Transition CPU governor
-======================================================
+cpu-powersave(1) -- Transition CPU governor
+===========================================
 
 
 ## SYNOPSIS
 
-`on-demand-cpupower-switch [subcommand]`
+`cpu-powersave [subcommand]`
 
 
 ## DESCRIPTION
 
-`on-demand-cpupower-switch` is a system binary used during the boot process to transition
+`cpu-powersave` is a system binary used during the boot process to transition
 the CPU governor from the default `performance` into the appropriate powersaving governor
 supported by the kernel driver.
 
