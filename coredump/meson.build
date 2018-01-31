@@ -9,3 +9,8 @@ install_data(
     '00-manager-coredump-solus.conf',
     install_dir: path_systemd_conf,
 )
+
+install_data(
+    '60-solus-coredump.conf',
+    install_dir: path_sysctl_dir,
+)
