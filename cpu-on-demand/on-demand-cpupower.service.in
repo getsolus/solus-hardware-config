@@ -1,11 +1,11 @@
 [Unit]
 Description=Switch system into ondemand governer
-ConditionPathExists=/usr/bin/cpupower
 ConditionVirtualization=no
 
 [Service]
 Type=oneshot
-ExecStart=-/usr/sbin/on-demand-cpupower-switch
+ExecStart=-@SBINDIR@/on-demand-cpupower-switch start
+ExecStop=-@SBINDIR@/on-demand-cpupower-switch stop
 
 [Install]
 WantedBy=multi-user.target

@@ -1,5 +1,10 @@
-install_data(
-    'on-demand-cpupower.service',
+data_conf = configuration_data()
+data_conf.set('SBINDIR', path_sbindir)
+
+configure_file(
+    input: 'on-demand-cpupower.service.in',
+    output: 'on-demand-cpupower.service',
+    configuration: data_conf,
     install_dir: path_systemd_unit_dir,
 )
 
