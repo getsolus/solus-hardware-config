@@ -3,8 +3,11 @@ install_data(
     install_dir: path_systemd_unit_dir,
 )
 
-# CPU on-demand script (needs rewriting to not suck.)
-install_data(
+executable(
     'on-demand-cpupower-switch',
+    sources: [
+        'main.c',
+    ],
+    install: true,
     install_dir: path_sbindir,
 )
