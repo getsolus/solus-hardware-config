@@ -23,9 +23,6 @@
 #include <string.h>
 #include <unistd.h>
 
-/* Trivial helper to silence warnings */
-#define __shc_unused__ __attribute__((unused))
-
 /**
  * Just represent the main governor frequencys
  */
@@ -249,7 +246,7 @@ the Free Software Foundation; either version 2 of the License, or\n\
  *
  * For now we'll just push the powersave mode.
  */
-int main(__shc_unused__ int argc, __shc_unused__ char **argv)
+int main(int argc, char **argv)
 {
         const char *subarg = NULL;
 
