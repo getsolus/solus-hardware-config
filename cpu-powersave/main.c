@@ -113,7 +113,7 @@ static const char *shc_transform_cpufreq(ShcScale scale)
 {
         switch (scale) {
         case SHC_SCALE_PERFORMANCE:
-                return "powerformance";
+                return "performance";
         case SHC_SCALE_POWERSAVE:
         default:
                 return "ondemand";
