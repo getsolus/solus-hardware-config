@@ -1,7 +1,7 @@
 project(
     'solus-hardware-config',
     ['c'],
-    version: '15',
+    version: '16',
     license: [
         'MIT',
     ],
