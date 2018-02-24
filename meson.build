@@ -51,11 +51,6 @@ path_systemd_conf = join_paths(systemd_util_dir, 'system.conf.d')
 path_systemd_unit_dir = dep_systemd.get_pkgconfig_variable('systemdsystemunitdir')
 path_sysctl_dir = dep_systemd.get_pkgconfig_variable('sysctldir')
 
-# Grab udev specifics
-message('Asking pkg-config for udev\'s directories')
-dep_udev = dependency('udev')
-udev_dir = dep_udev.get_pkgconfig_variable('udevdir')
-path_udev_rules_dir = join_paths(udev_dir, 'rules.d')
 
 # Modprobe is a bit of an odd ball
 path_modprobe_dir = join_paths(path_libdir, 'modprobe.d')
@@ -103,7 +98,6 @@ report = [
     '    coredump.conf.d:                       @0@'.format(path_coredump_conf),
     '    sysctl.d:                              @0@'.format(path_sysctl_dir),
     '    system.conf.d:                         @0@'.format(path_systemd_conf),
-    '    udev rules.d:                          @0@'.format(path_udev_rules_dir),
     '    modprobe.d:                            @0@'.format(path_modprobe_dir),
     '    X11 config:                            @0@'.format(path_x11_dir),
 ]

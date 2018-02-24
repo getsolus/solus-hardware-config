@@ -24,7 +24,7 @@ Various `modprobe.d` snippets to fix and blacklist certain hardware.
 
 ### tweaks
 
-`sysctl` and `udev` tweaks, i.e. HDD scheduler and such.
+`sysctl` tweaks. Previously contained HDD tweaks but has since been removed.
 
 ### xorg
 
