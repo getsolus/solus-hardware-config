@@ -4,9 +4,9 @@
 
 This package contains configuration data and utilities required by all Solus installations, with various tweaks, to ensure proper performance and hardware functionality.
 
-`solus-hardware-config` is a [Solus project](https://solus-project.com/)
+`solus-hardware-config` is a [Solus project](https://getsol.us/)
 
-![logo](https://build.solus-project.com/logo.png)
+![logo](https://build.getsol.us/logo.png)
 
 ## Components
 
