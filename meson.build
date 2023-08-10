@@ -46,7 +46,6 @@ message('Asking pkg-config for systemd\'s directories')
 dep_systemd = dependency('systemd')
 systemd_util_dir = dep_systemd.get_pkgconfig_variable('systemdutildir')
 
-path_coredump_conf = join_paths(systemd_util_dir, 'coredump.conf.d')
 path_systemd_conf = join_paths(systemd_util_dir, 'system.conf.d')
 path_systemd_unit_dir = dep_systemd.get_pkgconfig_variable('systemdsystemunitdir')
 path_sysctl_dir = dep_systemd.get_pkgconfig_variable('sysctldir')
@@ -73,7 +72,6 @@ config_h = configure_file(
 )
 config_h_dir = include_directories('.')
 
-subdir('coredump')
 subdir('modprobe')
 subdir('tweaks')
 subdir('xorg')
@@ -95,7 +93,6 @@ report = [
     '    ============',
     '',
     '    systemd unit directory:                @0@'.format(path_systemd_unit_dir),
-    '    coredump.conf.d:                       @0@'.format(path_coredump_conf),
     '    sysctl.d:                              @0@'.format(path_sysctl_dir),
     '    system.conf.d:                         @0@'.format(path_systemd_conf),
     '    modprobe.d:                            @0@'.format(path_modprobe_dir),
